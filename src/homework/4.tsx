@@ -4,7 +4,7 @@ import noop from "lodash/noop";
 type MenuIds = "first" | "second" | "last";
 type Menu = { id: MenuIds; title: string };
 type SelectedMenu = {
-  id: MenuIds;
+  id?: MenuIds;
 };
 
 // Додати тип Menu Selected
@@ -18,7 +18,7 @@ const MenuSelectedContext = createContext<MenuSelected>({
 
 // Додайте тип MenuAction
 type MenuAction = {
-  onSelectedMenu: React.Dispatch<React.SetStateAction<SelectedMenu>>;
+  onSelectedMenu: (menu: SelectedMenu) => void;
 };
 
 const MenuActionContext = createContext<MenuAction>({
